@@ -27,7 +27,7 @@ MAX_TOP_K = 50
 API_HOST = os.getenv("API_HOST", "0.0.0.0")
 API_PORT = int(os.getenv("API_PORT", "8000"))
 CORS_ORIGINS = os.getenv(
-    "CORS_ORIGINS", "http://localhost:5173,http://localhost:3000"
+    "CORS_ORIGINS", "http://localhost:5173,http://localhost:3000,http://localhost"
 ).split(",")
 
 # ── Auto-create directories ───────────────────────────────────────
