@@ -1,0 +1,54 @@
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Node
+node_modules/
+npm-debug.log
+yarn-error.log
+frontend/dist/
+frontend/.vite/
+
+# MacOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Project Specific Data
+backend/data/sephora/
+# We keep backend/data/index and backend/data/seed_products.json so it works out of the box!

@@ -1,0 +1,43 @@
+# Render deployment configuration
+# https://render.com/docs/blueprint-spec
+#
+# Deploy with:
+#   1. Push this repo to GitHub
+#   2. Go to dashboard.render.com → New → Blueprint
+#   3. Connect your repo — Render reads this file automatically
+#
+# Two services:
+#   curate-backend  — Python/FastAPI (Web Service)
+#   curate-frontend — React/nginx (Web Service)
+
+services:
+  - type: web
+    name: curate-backend
+    runtime: docker
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    plan: starter
+    region: oregon
+    envVars:
+      - key: GEMINI_API_KEY
+        sync: false          # set manually in Render dashboard
+      - key: API_HOST
+        value: 0.0.0.0
+      - key: API_PORT
+        value: "8000"
+      - key: CORS_ORIGINS
+        value: https://curate-frontend.onrender.com,http://localhost:5173
+    healthCheckPath: /health
+    autoDeploy: true
+
+  - type: web
+    name: curate-frontend
+    runtime: docker
+    dockerfilePath: ./frontend/Dockerfile
+    dockerContext: ./frontend
+    plan: starter
+    region: oregon
+    buildArgs:
+      - key: VITE_API_URL
+        value: https://curate-backend.onrender.com
+    autoDeploy: true

@@ -1,0 +1,16 @@
+# Backend — files to exclude from Docker build context
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.mypy_cache/
+
+# Large data files NOT needed in image (index is included)
+data/sephora/
+data/images/
+
+# Dev / editor artifacts
+.env
+*.log
+.DS_Store
